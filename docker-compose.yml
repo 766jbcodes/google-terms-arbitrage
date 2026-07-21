@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  dashboard:
+    build: .
+    container_name: niche-finance-dashboard
+    ports:
+      - "8420:8000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  puller:
+    build: .
+    container_name: niche-finance-puller
+    env_file: .env
+    volumes:
+      - ./data:/app/data
+    # Runs both pullers on startup, then weekly.
+    # pull_trends.py uses pytrends (no API key).
+    # pull_keyword_metrics.py uses Google Ads API (needs Basic Access token).
+    entrypoint: >
+      sh -c "python scripts/pull_trends.py;
+             python scripts/pull_keyword_metrics.py;
+             while true; do
+               sleep 604800;
+               python scripts/pull_trends.py;
+               python scripts/pull_keyword_metrics.py;
+             done"
+    restart: unless-stopped

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Broker Signal prototype — Australian finance demand intelligence.">
+    <title>Broker Signal — Weekly opportunity briefing</title>
+    <link rel="stylesheet" href="/static/prototype.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Primary navigation">
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">BS</span>
+                <div>
+                    <strong>Broker Signal</strong>
+                    <span>Australia</span>
+                </div>
+            </div>
+
+            <nav class="primary-nav">
+                <button class="nav-item is-active" data-view="radar" type="button">
+                    <span class="nav-icon" aria-hidden="true">01</span>
+                    Opportunity radar
+                </button>
+                <button class="nav-item" data-view="briefing" type="button">
+                    <span class="nav-icon" aria-hidden="true">02</span>
+                    Weekly briefing
+                </button>
+                <button class="nav-item" data-view="watchlist" type="button">
+                    <span class="nav-icon" aria-hidden="true">03</span>
+                    Watchlist
+                    <span class="nav-count" id="watchlist-count">2</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-context">
+                <span class="eyebrow">Your focus</span>
+                <strong>Asset &amp; specialist finance</strong>
+                <span>Victoria · Commercial + consumer</span>
+                <button id="edit-focus-button" type="button">Edit preferences</button>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="avatar" aria-hidden="true">JT</span>
+                <div>
+                    <strong>Jordan Taylor</strong>
+                    <span>Sample brokerage</span>
+                </div>
+            </div>
+        </aside>
+
+        <div class="workspace">
+            <header class="topbar">
+                <button class="mobile-menu-button" id="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+                    <span></span><span></span>
+                </button>
+                <div class="data-status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Australian data refreshed 15 July
+                </div>
+                <div class="topbar-actions">
+                    <button class="text-button" id="method-button" type="button">How scoring works</button>
+                    <button class="icon-button" type="button" aria-label="Notifications">
+                        <span aria-hidden="true">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <main id="main-content">
+                <section class="view is-active" id="radar-view" data-view-panel="radar" aria-labelledby="radar-title">
+                    <div class="page-intro">
+                        <div>
+                            <span class="eyebrow">Wednesday, 15 July</span>
+                            <h1 id="radar-title">Three opportunities deserve your attention.</h1>
+                            <p>We reviewed 286 Australian lending searches against your brokerage focus. Start with the signal that combines growing demand with workable ad costs.</p>
+                        </div>
+                        <button class="secondary-button" id="open-briefing-button" type="button">
+                            View weekly briefing
+                            <span aria-hidden="true">→</span>
+                        </button>
+                    </div>
+
+                    <div class="filter-bar" aria-label="Opportunity filters">
+                        <div class="filter-group">
+                            <button class="filter-chip is-active" data-filter="all" type="button">Best matches <span>3</span></button>
+                            <button class="filter-chip" data-filter="commercial" type="button">Commercial <span>2</span></button>
+                            <button class="filter-chip" data-filter="consumer" type="button">Consumer <span>1</span></button>
+                        </div>
+                        <button class="filter-control" id="filter-control" type="button">
+                            <span aria-hidden="true">≡</span>
+                            More filters
+                        </button>
+                    </div>
+
+                    <div class="radar-layout">
+                        <div class="opportunity-feed" id="opportunity-feed" aria-live="polite"></div>
+
+                        <aside class="market-pulse" aria-labelledby="market-pulse-title">
+                            <div class="market-pulse-heading">
+                                <span class="eyebrow">Market pulse</span>
+                                <h2 id="market-pulse-title">What moved this week</h2>
+                            </div>
+
+                            <div class="pulse-item">
+                                <span class="pulse-direction up" aria-label="Rising">↑</span>
+                                <div>
+                                    <strong>Asset finance</strong>
+                                    <span>12 tracked searches gained momentum</span>
+                                </div>
+                            </div>
+                            <div class="pulse-item">
+                                <span class="pulse-direction up" aria-label="Rising">↑</span>
+                                <div>
+                                    <strong>Regional borrowers</strong>
+                                    <span>Search interest is strongest in Victoria</span>
+                                </div>
+                            </div>
+                            <div class="pulse-item">
+                                <span class="pulse-direction down" aria-label="Falling">↓</span>
+                                <div>
+                                    <strong>Home renovation</strong>
+                                    <span>Broad terms softened for a third week</span>
+                                </div>
+                            </div>
+
+                            <div class="coverage-note">
+                                <span class="coverage-value">286</span>
+                                <div>
+                                    <strong>search themes reviewed</strong>
+                                    <span>Google Trends + Ads · Australia</span>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+
+                <section class="view" id="briefing-view" data-view-panel="briefing" aria-labelledby="briefing-title">
+                    <div class="briefing-header">
+                        <div>
+                            <span class="eyebrow">Weekly intelligence note · 13–19 July</span>
+                            <h1 id="briefing-title">The specialist finance briefing</h1>
+                            <p>A five-minute read prepared around your brokerage focus.</p>
+                        </div>
+                        <button class="secondary-button" id="copy-briefing-button" type="button">Copy briefing link</button>
+                    </div>
+
+                    <article class="briefing-paper">
+                        <header class="briefing-lede">
+                            <span>Issue 01</span>
+                            <h2>Equipment-led demand is creating a timely opening for Victorian brokers.</h2>
+                            <p>Commercial intent strengthened across dental and trade equipment searches while estimated advertising costs remained below the wider asset-finance category.</p>
+                        </header>
+
+                        <div class="briefing-columns">
+                            <section>
+                                <span class="section-number">01</span>
+                                <h3>The lead signal</h3>
+                                <p><strong>Dental equipment finance</strong> recorded sustained growth across 31 active weeks, supported by clear product intent and comparatively low ad competition.</p>
+                                <button class="inline-link" data-open-opportunity="dental" type="button">Open opportunity analysis →</button>
+                            </section>
+                            <section>
+                                <span class="section-number">02</span>
+                                <h3>Worth watching</h3>
+                                <p><strong>Horse float finance</strong> is still a small niche, but demand is becoming more consistent in regional Victoria. Treat it as a test campaign rather than a scale channel.</p>
+                                <button class="inline-link" data-save-opportunity="horse" type="button">Add to watchlist →</button>
+                            </section>
+                            <section>
+                                <span class="section-number">03</span>
+                                <h3>Hold for now</h3>
+                                <p><strong>Home renovation loans</strong> remain expensive to advertise and broad search demand has softened. Existing campaigns may need tighter intent filters.</p>
+                            </section>
+                        </div>
+
+                        <footer class="briefing-footer">
+                            <div>
+                                <span class="eyebrow">Suggested 30-minute action</span>
+                                <strong>Review the dental equipment campaign brief and identify one referral partner to approach.</strong>
+                            </div>
+                            <button class="primary-button" data-open-opportunity="dental" type="button">Build this campaign</button>
+                        </footer>
+                    </article>
+                </section>
+
+                <section class="view" id="watchlist-view" data-view-panel="watchlist" aria-labelledby="watchlist-title">
+                    <div class="page-intro compact">
+                        <div>
+                            <span class="eyebrow">Your saved signals</span>
+                            <h1 id="watchlist-title">Watchlist</h1>
+                            <p>Keep promising niches close without committing campaign budget too early.</p>
+                        </div>
+                    </div>
+                    <div class="watchlist-table-wrap">
+                        <table class="watchlist-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Opportunity</th>
+                                    <th scope="col">Signal</th>
+                                    <th scope="col">4-week movement</th>
+                                    <th scope="col">Next review</th>
+                                    <th scope="col"><span class="sr-only">Actions</span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="watchlist-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div class="scrim" id="scrim" hidden></div>
+
+    <aside class="detail-panel" id="detail-panel" aria-labelledby="detail-title" aria-hidden="true" inert>
+        <div class="detail-panel-header">
+            <div>
+                <span class="eyebrow" id="detail-category">Opportunity analysis</span>
+                <h2 id="detail-title">Dental equipment finance</h2>
+            </div>
+            <button class="close-button" id="close-detail-button" type="button" aria-label="Close opportunity analysis">×</button>
+        </div>
+        <div class="detail-content" id="detail-content"></div>
+    </aside>
+
+    <dialog class="method-dialog" id="method-dialog">
+        <form method="dialog">
+            <button class="close-button" aria-label="Close scoring explanation">×</button>
+        </form>
+        <span class="eyebrow">Transparent by design</span>
+        <h2>How opportunity scores work</h2>
+        <p>The score combines direction, consistency, commercial intent, estimated search demand and advertising competition. It ranks opportunities against other Australian finance searches—it is not a prediction of loan volume.</p>
+        <div class="method-factors">
+            <span>Demand trend</span><strong>30%</strong>
+            <span>Consistency</span><strong>25%</strong>
+            <span>Commercial intent</span><strong>20%</strong>
+            <span>Ad efficiency</span><strong>15%</strong>
+            <span>Recency</span><strong>10%</strong>
+        </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="/static/prototype.js"></script>
+</body>
+</html>
