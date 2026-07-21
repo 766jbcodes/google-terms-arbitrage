@@ -1,11 +1,21 @@
 version: "3.8"
 
+# Secrets are stored in 1Password. To start:
+#   op run --env-file=.env.tpl -- docker compose up -d
+# This injects secrets as env vars at runtime — nothing is written to disk.
+
 services:
   dashboard:
     build: .
     container_name: niche-finance-dashboard
     ports:
       - "8420:8000"
+    environment:
+      - GOOGLE_ADS_DEVELOPER_TOKEN
+      - GOOGLE_ADS_CLIENT_ID
+      - GOOGLE_ADS_CLIENT_SECRET
+      - GOOGLE_ADS_REFRESH_TOKEN
+      - GOOGLE_ADS_CUSTOMER_ID
     volumes:
       - ./data:/app/data
     restart: unless-stopped
@@ -13,7 +23,12 @@ services:
   puller:
     build: .
     container_name: niche-finance-puller
-    env_file: .env
+    environment:
+      - GOOGLE_ADS_DEVELOPER_TOKEN
+      - GOOGLE_ADS_CLIENT_ID
+      - GOOGLE_ADS_CLIENT_SECRET
+      - GOOGLE_ADS_REFRESH_TOKEN
+      - GOOGLE_ADS_CUSTOMER_ID
     volumes:
       - ./data:/app/data
     # Runs both pullers on startup, then weekly.

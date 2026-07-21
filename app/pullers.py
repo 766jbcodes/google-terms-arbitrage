@@ -18,7 +18,8 @@ except ImportError:
     GoogleAdsClient = None
     GoogleAdsException = Exception
 
-load_dotenv(db.DB_PATH.parent.parent / ".env")
+# Load .env for local dev; in production, secrets come from 1Password via `op run`
+load_dotenv(db.DB_PATH.parent.parent / ".env", override=False)
 
 GEO = "AU"
 TIMEFRAME = "today 12-m"
